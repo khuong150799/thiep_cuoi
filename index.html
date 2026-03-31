@@ -1,0 +1,2166 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+    />
+    <title>Thiệp cưới 1 - Thiệp cưới online miễn phí | CineLove</title>
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      @font-face {
+        font-family: "Chillatos";
+        src: url("/public/fonts/chillatos.woff2") format("woff2");
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      /* =========================
+   MONTSERRAT (Body)
+========================= */
+      @font-face {
+        font-family: "Montserrat";
+        src: url("/public/fonts/montserrat.woff2") format("woff2");
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      /* =========================
+   PLAYFAIR DISPLAY (Heading)
+========================= */
+      @font-face {
+        font-family: "PlayfairDisplay";
+        src: url("/public/fonts/playfairdisplay.woff2") format("woff2");
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      /* =========================
+   QUICKSAND (UI nhẹ)
+========================= */
+      @font-face {
+        font-family: "Quicksand";
+        src: url("/public/fonts/quicksand.woff2") format("woff2");
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      /* =========================
+   SCARLET BRADLEY (Signature)
+========================= */
+      @font-face {
+        font-family: "Scarlet Bradley";
+        src: url("/public/fonts/scarlet-bradleyregular.woff2") format("woff2");
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      /* =========================
+   BELINDA AVENUE (Script)
+========================= */
+      @font-face {
+        font-family: "Belinda Avenue";
+        src: url("/public/fonts/belinda-avenue.woff2") format("woff2");
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      /* =========================
+   SIGNORA (Decorative)
+========================= */
+      @font-face {
+        font-family: "Signora";
+        src: url("/public/fonts/signora.woff2") format("woff2");
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      /* =========================
+   MADAM GHEA (Decorative)
+========================= */
+      @font-face {
+        font-family: "Madam Ghea";
+        src: url("/public/fonts/madam-ghea.woff2") format("woff2");
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      /* =========================
+   SHOWCASE SANS
+========================= */
+      @font-face {
+        font-family: "ShowcaseSans";
+        src: url("/public/fonts/showcasesans.woff2") format("woff2");
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      /* =========================
+   MALLONG (Custom)
+========================= */
+      @font-face {
+        font-family: "Mallong";
+        src: url("/public/fonts/mallong.woff2") format("woff2");
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      html,
+      body {
+        height: 100%;
+      }
+      body {
+        background-color: #f0f2f5;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+
+        -webkit-font-smoothing: antialiased;
+      }
+
+      #pc-wrapper {
+        width: 100%;
+        border: 1px solid #e0e0e0;
+        box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+        border-radius: 3px;
+        overflow: hidden;
+        background: #fff;
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+      }
+      #audio-control-wrapper {
+        z-index: 1000;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        align-self: flex-end;
+        margin-right: 10px;
+        margin-top: 10px;
+        margin-bottom: -40px;
+        flex-shrink: 0;
+      }
+      .audio-toggle {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(165, 165, 165, 0.2);
+        border-radius: 50%;
+        overflow: hidden;
+        cursor: pointer;
+      }
+      .audio-toggle.mrotate {
+        animation: mrotate 5s linear infinite;
+      }
+      @keyframes mrotate {
+        to {
+          transform: rotate(1turn);
+        }
+      }
+      .music-icon {
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
+      #scroll-container {
+        background-color: #fff;
+        overflow-y: auto;
+        overflow-x: hidden;
+        flex: 1 1 auto;
+        min-height: 0;
+        -webkit-overflow-scrolling: touch;
+      }
+      #root-page-container {
+        background-color: #fff;
+        position: relative;
+      }
+      .node {
+        position: absolute;
+        box-sizing: border-box;
+      }
+      .photo-bg-wrap {
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+      }
+      .text-box {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        word-break: break-word;
+      }
+      .countdown {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+        background-color: #000;
+        gap: 20px;
+      }
+      .countdown > div {
+        width: 25%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: #000;
+      }
+      .cd-num,
+      .cd-label {
+        color: #fff;
+        font-size: 14px;
+        font-family: Arial, sans-serif;
+      }
+      .calendar.template-three {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        width: 100%;
+        height: 100%;
+        color: #fff;
+        font-size: 14px;
+        font-family: Arial;
+      }
+      .calendar.template-three > div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        padding: 4px 0;
+      }
+      .calendar .heart-date {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        opacity: 0.9;
+      }
+      .calendar .colorF {
+        color: #ff6b6b;
+        font-weight: bold;
+        position: relative;
+        z-index: 1;
+      }
+      #cinelove-toolbar {
+        flex: 0 0 64px;
+        z-index: 1000;
+        width: 100%;
+        height: 64px;
+        box-sizing: border-box;
+      }
+      .toolbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        height: 100%;
+        padding: 0.5rem;
+      }
+      .message-box-button {
+        background: rgba(0, 0, 0, 0.2);
+        padding: 0 7px 0 15px;
+        color: #fff;
+        border-radius: 30px;
+        font-size: 13px;
+        width: 150px;
+        height: 39px;
+        line-height: 39px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        cursor: pointer;
+      }
+      .toolbar-right {
+        display: flex;
+        gap: 10px;
+      }
+      #animation-gift-preview-btn {
+        background: rgba(0, 0, 0, 0.2);
+        padding: 0 10px;
+        color: #fff;
+        border-radius: 30px;
+        font-size: 14px;
+        height: 39px;
+        line-height: 39px;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+      }
+      #animation-gift-preview-btn img {
+        height: 30px;
+        vertical-align: middle;
+      }
+      #animation-gift-preview-btn span {
+        font-size: 13px;
+        margin-left: 5px;
+        white-space: nowrap;
+      }
+      .watermark {
+        align-self: flex-end;
+        margin: -100px 0 36px -20px;
+        text-align: center;
+        transform: rotate(-90deg);
+        white-space: nowrap;
+        z-index: 999;
+        pointer-events: none;
+        flex-shrink: 0;
+      }
+      .watermark-content {
+        color: #1c1c1c;
+        font-size: 14px;
+        font-weight: 300;
+      }
+      .watermark-link {
+        color: #414141;
+        text-decoration: none;
+        font-weight: 500;
+        margin-left: 2px;
+      }
+      .mask-013 {
+        -webkit-mask-box-image-source: url(https://assets.cinelove.me/resources/cropShapes/013_mjo2qfkce8o.png);
+        -webkit-mask-box-image-slice: 0 fill;
+        mask-image: url(https://assets.cinelove.me/resources/cropShapes/013_mjo2qfkce8o.png);
+        mask-size: 100% 100%;
+        mask-repeat: no-repeat;
+        width: 100%;
+        height: 100%;
+      }
+      .mask-017 {
+        -webkit-mask-box-image-source: url(https://assets.cinelove.me/resources/cropShapes/017_qnyb431guuf.png);
+        -webkit-mask-box-image-slice: 0 fill;
+        mask-image: url(https://assets.cinelove.me/resources/cropShapes/017_qnyb431guuf.png);
+        mask-size: 100% 100%;
+        mask-repeat: no-repeat;
+        width: 100%;
+        height: 100%;
+      }
+      .no-mask {
+        -webkit-mask-box-image-source: none;
+        mask-image: none;
+        width: 100%;
+        height: 100%;
+      }
+      .material-component {
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+      }
+      [data-t] {
+        transition: all 1.3s ease-out;
+        opacity: 0;
+      }
+      [data-t="fade"] {
+        transition-duration: 1s;
+      }
+      [data-t="su"] {
+        transform: translateY(40px);
+      }
+      [data-t="sr"] {
+        transform: translateX(-40px);
+      }
+      [data-t="sl"] {
+        transform: translateX(40px);
+      }
+      [data-t="fade"] {
+        transform: none;
+      }
+      [data-t].vis {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+      [data-d="2"] {
+        transition-delay: 0.1s;
+      }
+      [data-d="3"] {
+        transition-delay: 0.2s;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="pc-wrapper">
+      <div id="audio-control-wrapper">
+        <div class="audio-toggle" id="audioToggle" onclick="toggleAudio()">
+          <img src="public/audio-1.png" alt="music icon" class="music-icon" />
+        </div>
+      </div>
+      <audio
+        id="bgAudio"
+        src="public/0e470330-e4d4-4fdc-8d99-830aab66916c.mp3"
+        loop
+        preload="auto"
+      ></audio>
+      <!-- autoplay -->
+
+      <div id="scroll-container">
+        <div id="root-page-container">
+          <!-- Hero photo -->
+          <div style="top: 0; left: 0; width: 100%; height: 800px; z-index: 0">
+            <div data-t="fade" style="width: 100%; height: 100%">
+              <div class="mask-013">
+                <div
+                  class="photo-bg-wrap"
+                  style="
+                    background-size: cover;
+                    background-image: url(public/hero-photo.jpg);
+                  "
+                ></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Decorative overlay -->
+          <div
+            class="node"
+            style="
+              top: 45px;
+              height: 152.65px;
+              z-index: 0;
+              width: 100%;
+              display: flex;
+              justify-content: center;
+            "
+          >
+            <div data-t="su" data-d="2" style="width: 322px; height: 100%">
+              <div class="no-mask">
+                <div
+                  class="photo-bg-wrap"
+                  style="
+                    background-image: url(public/39058fb3-f16b-494e-8fd5-6ed5741c50f8.png);
+                  "
+                ></div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="node"
+            style="
+              top: 0;
+              width: 100%;
+              z-index: 0;
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              padding: 10px 0px;
+            "
+          >
+            <!-- YOU ARE -->
+            <div data-t="sr" style="width: 100%; height: 100%">
+              <div class="text-box">
+                <div
+                  style="
+                    width: 100%;
+                    color: #fff;
+                    font-size: 20px;
+                    font-weight: 500;
+                    font-family: ShowcaseSans, sans-serif;
+                    text-align: center;
+                  "
+                >
+                  YOU ARE
+                </div>
+              </div>
+            </div>
+
+            <!-- THE LOVE OF -->
+            <div data-t="su" style="width: 100%; height: 100%">
+              <div class="text-box">
+                <div
+                  style="
+                    width: 100%;
+                    color: #fff;
+                    font-size: 20px;
+                    font-weight: 500;
+                    font-family: ShowcaseSans, sans-serif;
+                    text-align: center;
+                  "
+                >
+                  THE LOVE OF
+                </div>
+              </div>
+            </div>
+
+            <!-- MY LIFE -->
+            <div data-t="sl" style="width: 100%; height: 100%">
+              <div class="text-box">
+                <div
+                  style="
+                    width: 100%;
+                    color: #fff;
+                    font-size: 20px;
+                    font-weight: 500;
+                    font-family: ShowcaseSans, sans-serif;
+                    text-align: center;
+                  "
+                >
+                  MY LIFE
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- long time -->
+          <!-- <div
+            class="node"
+            style="top: 255px; left: 10px; width: 480px; z-index: 0"
+          >
+            <div data-t="su" style="width: 100%; height: 100%">
+              <div class="text-box">
+                <div
+                  style="
+                    width: 100%;
+                    color: #fff;
+                    font-size: 18px;
+                    font-weight: 500;
+                    font-family: PlayfairDisplay, serif;
+                    text-align: center;
+                  "
+                >
+                  It's been a long time, see you at the wedding!
+                </div>
+              </div>
+            </div>
+          </div> -->
+
+          <!-- date -->
+          <!-- <div
+            class="node"
+            style="top: 287px; left: 137px; width: 228px; z-index: 0"
+          >
+            <div data-t="su" style="width: 100%; height: 100%">
+              <div class="text-box">
+                <div
+                  style="
+                    width: 100%;
+                    color: #ffffffe6;
+                    font-size: 19px;
+                    font-weight: 500;
+                    font-family: &quot;Montserrat&quot;, sans-serif;
+                    text-align: center;
+                  "
+                >
+                  2050.05.20
+                </div>
+              </div>
+            </div>
+          </div> -->
+
+          <div
+            class="node"
+            style="
+              top: 724px;
+              width: 100%;
+              z-index: 0;
+              display: flex;
+              justify-content: space-around;
+              align-items: center;
+            "
+          >
+            <!-- BRIDE -->
+            <div
+              style="display: flex; flex-direction: column; align-items: center"
+            >
+              <div data-t="su" style="margin-bottom: 12px">
+                <div class="text-box" style="justify-content: flex-start">
+                  <div
+                    style="
+                      width: 100%;
+                      color: #000;
+                      font-size: 26px;
+                      font-weight: 500;
+                      font-family: Signora, serif;
+                      text-align: left;
+                    "
+                  >
+                    BRIDE
+                  </div>
+                </div>
+              </div>
+              <!-- Duy Khương -->
+              <div data-t="sr">
+                <div class="text-box" style="justify-content: flex-end">
+                  <div
+                    style="
+                      width: 100%;
+                      color: #000;
+                      font-size: 20px;
+                      font-weight: 500;
+                      font-family: Chillatos, cursive;
+                      text-align: right;
+                    "
+                  >
+                    Duy Khương
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div
+              style="display: flex; flex-direction: column; align-items: center"
+            >
+              <!-- GROOM -->
+              <div data-t="su" style="margin-bottom: 12px">
+                <div
+                  style="
+                    width: 100%;
+                    color: #000;
+                    font-size: 26px;
+                    font-weight: 500;
+                    font-family: Signora, serif;
+                    text-align: left;
+                  "
+                >
+                  GROOM
+                </div>
+                <!-- </div> -->
+              </div>
+              <!-- Mỹ Huyền -->
+              <div data-t="sl">
+                <div class="text-box" style="justify-content: flex-start">
+                  <div
+                    style="
+                      width: 100%;
+                      color: #000;
+                      font-size: 20px;
+                      font-weight: 500;
+                      font-family: Chillatos, cursive;
+                      text-align: left;
+                    "
+                  >
+                    Mỹ Huyền
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- heart -->
+          <div
+            style="
+              width: 100%;
+              display: flex;
+              justify-content: center;
+              cursor: default;
+              margin: 75px 0;
+            "
+          >
+            <div data-t="su" style="width: 20px; height: 20px">
+              <div class="text-box" style="justify-content: flex-start">
+                <div id="svg-MBuQz3c3tL" style="width: 100%; height: 100%">
+                  <svg
+                    preserveAspectRatio="none"
+                    width="100%"
+                    height="100%"
+                    version="1.2"
+                    baseProfile="tiny"
+                    id="图层_1"
+                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                    x="0px"
+                    y="0px"
+                    viewBox="0 0 100 100"
+                    xml:space="preserve"
+                  >
+                    <style>
+                      #svg-MBuQz3c3tL svg path {
+                        fill: #baa58a;
+                      }
+                    </style>
+                    <path
+                      id="XMLID_13374_"
+                      fill="#999999"
+                      d="M70.7,71.3c-10.6,7.5-19.6,17.9-20.7,22.2c-1.3-4.3-9.4-14.5-20.8-22
+	C17.5,63.8-0.1,56.6,0,37.4c0.2-35,37-42,50-11.9C62.3-3.4,99.8,2.1,100,37.2C100.1,56.4,82.3,63.1,70.7,71.3L70.7,71.3z"
+                    ></path>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- decorative -->
+          <!-- class="node" -->
+          <div
+            style="
+              width: 100%;
+              display: flex;
+              justify-content: center;
+              margin-bottom: 45px;
+            "
+          >
+            <div data-t="su" data-d="2" style="width: 224px; height: 52px">
+              <div class="no-mask">
+                <div
+                  class="photo-bg-wrap"
+                  style="
+                    background-image: url(https://assets.cinelove.me/templates/assets/f7f5d1dc-1da6-4004-a0a5-9676073df472/bfed8f21-a117-4297-8e28-3e0e37a61540.png);
+                  "
+                ></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- THIỆP MỜI -->
+          <!-- class="node" -->
+          <div
+            style="
+              width: 100%;
+              display: flex;
+              justify-content: center;
+              margin-bottom: 60px;
+            "
+          >
+            <div data-t="su">
+              <div class="text-box">
+                <div
+                  style="
+                    color: #000;
+                    font-size: 26px;
+                    font-weight: 500;
+                    font-family:
+                      Belinda Avenue,
+                      cursive;
+                  "
+                >
+                  THIỆP MỜI CƯỚI CỦA CHÚNG MÌNH
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            style="
+              width: 100%;
+              color: #000;
+              font-size: 26px;
+              font-weight: 500;
+              font-family: ShowcaseSans, sans-serif;
+              display: flex;
+              justify-content: space-around;
+            "
+          >
+            <!-- FALL IN -->
+            <div data-t="sr">
+              <div class="text-box">FALL IN</div>
+            </div>
+            <!-- LOVE -->
+            <div data-t="su">
+              <div class="text-box">LOVE</div>
+            </div>
+            <!-- WEDDING -->
+            <div data-t="sl">
+              <div class="text-box">WEDDING</div>
+            </div>
+          </div>
+
+          <!-- photo 2 -->
+          <div style="width: 100%; height: 250px">
+            <div
+              data-t="su"
+              data-d="2"
+              style="
+                width: 100%;
+                height: 100%;
+                padding: 20px 0 35px 0;
+                background-color: #000;
+              "
+            >
+              <div class="no-mask">
+                <div
+                  class="photo-bg-wrap"
+                  style="
+                    background-size: cover;
+                    background-image: url(public/2260413502517011637.jpg);
+                  "
+                ></div>
+              </div>
+            </div>
+          </div>
+          <!-- clouds text -->
+          <div
+            class="node"
+            style="
+              top: 1429px;
+              width: 100%;
+              display: flex;
+              justify-content: center;
+            "
+          >
+            <div data-t="su">
+              <div class="text-box">
+                <div
+                  style="
+                    color: #fff;
+                    font-size: 12px;
+                    font-weight: 500;
+                    font-family: Quicksand, sans-serif;
+                  "
+                >
+                  As the clouds and mist dissipate, I love you and everyone
+                  knows it
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Gửi đến bạn -->
+          <div
+            data-t="su"
+            style="
+              width: 100%;
+              margin-top: 65px;
+              display: flex;
+              align-items: center;
+              color: #000;
+              font-size: 14px;
+              font-family: PlayfairDisplay, serif;
+              flex-direction: column;
+              line-height: 1.6;
+              padding: 0 12px;
+              text-align: center;
+            "
+          >
+            <div>Gửi đến bạn tấm thiệp cưới đầy yêu thương.&nbsp;</div>
+            <div>
+              Những ai nhận được lời mời này đều là những người đặc biệt với bọn
+              mình.&nbsp;
+            </div>
+            <div>Mong bạn và gia đình sẽ đến chung vui,&nbsp;</div>
+            <div>
+              Cùng chứng kiến khoảnh khắc hạnh phúc nhất của hai đứa.&nbsp;
+            </div>
+            <div>Cảm ơn vì luôn bên cạnh và yêu thương.&nbsp;</div>
+            <div>Bọn mình rất mong được gặp bạn trong ngày vui này! ❤️</div>
+          </div>
+
+          <!-- To Our Family -->
+          <div style="width: 100%; margin-top: 80px">
+            <div data-t="su">
+              <div class="text-box">
+                <div
+                  style="
+                    color: #000;
+                    font-size: 16px;
+                    font-weight: 500;
+                    font-family: Quicksand, sans-serif;
+                    text-align: center;
+                    line-height: 1.45;
+                  "
+                >
+                  To Our Family And Friends,&nbsp;
+                  <div>Thank You For Celebrating Our Special Day,&nbsp;</div>
+                  <div>Supporting Us And Sharing Our Love.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            style="
+              width: 100%;
+              display: flex;
+              justify-content: center;
+              cursor: default;
+              margin: 75px 0;
+            "
+          >
+            <div data-t="su" style="width: 20px; height: 20px">
+              <div class="text-box" style="justify-content: flex-start">
+                <div id="svg-MBuQz3c3tL" style="width: 100%; height: 100%">
+                  <svg
+                    preserveAspectRatio="none"
+                    width="100%"
+                    height="100%"
+                    version="1.2"
+                    baseProfile="tiny"
+                    id="图层_1"
+                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                    x="0px"
+                    y="0px"
+                    viewBox="0 0 100 100"
+                    xml:space="preserve"
+                  >
+                    <style>
+                      #svg-MBuQz3c3tL svg path {
+                        fill: #baa58a;
+                      }
+                    </style>
+                    <path
+                      id="XMLID_13374_"
+                      fill="#999999"
+                      d="M70.7,71.3c-10.6,7.5-19.6,17.9-20.7,22.2c-1.3-4.3-9.4-14.5-20.8-22
+	C17.5,63.8-0.1,56.6,0,37.4c0.2-35,37-42,50-11.9C62.3-3.4,99.8,2.1,100,37.2C100.1,56.4,82.3,63.1,70.7,71.3L70.7,71.3z"
+                    ></path>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- decorative bar -->
+          <div style="width: 100%; display: flex; justify-content: center">
+            <div data-t="su" data-d="2">
+              <div class="no-mask">
+                <div
+                  class="photo-bg-wrap"
+                  style="
+                    width: 261.3px;
+                    height: 57.2327px;
+                    background-image: url(https://assets.cinelove.me/templates/assets/f7f5d1dc-1da6-4004-a0a5-9676073df472/84f24b83-d711-4c85-84b1-7771fa8f0e42.png);
+                  "
+                ></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- left photo couple -->
+          <div
+            style="
+              width: 100%;
+              display: flex;
+              justify-content: space-around;
+              margin: 50px 0 65px;
+            "
+          >
+            <div
+              style="display: flex; flex-direction: column; align-items: center"
+            >
+              <div
+                data-t="sr"
+                data-d="2"
+                style="width: 178.881px; height: 258px"
+              >
+                <div class="no-mask">
+                  <div
+                    class="photo-bg-wrap"
+                    style="
+                      background-size: cover;
+                      background-image: url(public/Screenshot\ 2026-03-31\ at\ 20.50.28.png);
+                    "
+                  ></div>
+                </div>
+              </div>
+              <div data-t="su" style="margin: 16px 0 12px">
+                <div class="text-box" style="justify-content: flex-start">
+                  <div style="font-family: Arial, Helvetica, sans-serif">|</div>
+                </div>
+              </div>
+              <div data-t="sr">
+                <div class="text-box" style="justify-content: flex-end">
+                  <div
+                    style="
+                      width: 100%;
+                      color: #000;
+                      font-size: 20px;
+                      font-weight: 500;
+                      font-family: Chillatos, cursive;
+                      text-align: right;
+                    "
+                  >
+                    Duy Khương
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- right photo couple -->
+            <div
+              style="display: flex; flex-direction: column; align-items: center"
+            >
+              <div
+                data-t="sl"
+                data-d="2"
+                style="width: 178.881px; height: 258px"
+              >
+                <div class="no-mask">
+                  <div
+                    class="photo-bg-wrap"
+                    style="
+                      background-size: cover;
+                      background-image: url(public/Screenshot\ 2026-03-31\ at\ 20.53.56.png);
+                    "
+                  ></div>
+                </div>
+              </div>
+              <div data-t="su" style="margin: 16px 0 12px">
+                <div style="font-family: Arial, Helvetica, sans-serif">|</div>
+                <!-- </div> -->
+              </div>
+              <!-- Mỹ Huyền -->
+              <div data-t="sl">
+                <div class="text-box" style="justify-content: flex-start">
+                  <div
+                    style="
+                      width: 100%;
+                      color: #000;
+                      font-size: 20px;
+                      font-weight: 500;
+                      font-family: Chillatos, cursive;
+                      text-align: left;
+                    "
+                  >
+                    Mỹ Huyền
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Trái tim em -->
+          <div data-t="su" style="text-align: center">
+            <div class="text-box">
+              <div
+                style="
+                  color: #252525;
+                  font-size: 16px;
+                  font-weight: 500;
+                  font-family: PlayfairDisplay, serif;
+                "
+              >
+                Trái tim em,&nbsp;
+                <div>Tựa cánh chim nhỏ giữa đồng hoang,&nbsp;</div>
+                <div>Đã tìm thấy bầu trời của riêng mình&nbsp;</div>
+                <div>Trong đôi mắt anh.</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- My heart -->
+
+          <div
+            data-t="su"
+            style="width: 100%; margin-top: 55px; padding: 0 15px"
+          >
+            <div class="text-box">
+              <div
+                style="
+                  color: #000;
+                  font-size: 18px;
+                  font-weight: 500;
+                  font-family: Quicksand, sans-serif;
+                  text-align: center;
+                "
+              >
+                My heart, the bird of the wilderness has found its sky in your
+                eye.
+              </div>
+            </div>
+          </div>
+
+          <div
+            style="
+              width: 100%;
+              color: #000;
+              font-size: 26px;
+              font-weight: 500;
+              font-family: ShowcaseSans, sans-serif;
+              display: flex;
+              justify-content: space-around;
+              margin-top: 70px;
+            "
+          >
+            <!-- WELCOME -->
+            <div data-t="sr">
+              <div class="text-box">WELCOME</div>
+            </div>
+            <!-- TO -->
+            <div data-t="su">
+              <div class="text-box">TO</div>
+            </div>
+            <!-- WEDDING -->
+            <div data-t="sl">
+              <div class="text-box">WEDDING</div>
+            </div>
+          </div>
+
+          <!-- big bg -->
+          <div style="position: relative; width: 100%; height: 735px">
+            <div
+              data-t="fade"
+              class="node"
+              style="top: 0; z-index: 999999; height: 100%; left: 0; right: 0"
+            >
+              <div class="no-mask">
+                <div
+                  class="photo-bg-wrap"
+                  style="
+                    background-size: cover;
+                    background-image: url(https://assets.cinelove.me/templates/assets/f7f5d1dc-1da6-4004-a0a5-9676073df472/f11a4405-bb2b-4d32-affb-83e1d6bcddb1.png);
+                  "
+                ></div>
+              </div>
+            </div>
+            <!-- photo 1 of 3 -->
+            <div
+              class="node"
+              style="
+                top: 20px;
+                height: 230px;
+                z-index: 1;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+              "
+            >
+              <div data-t="su" style="width: 90%; height: 100%; z-index: -1">
+                <div class="no-mask">
+                  <div
+                    class="photo-bg-wrap"
+                    style="
+                      background-size: cover;
+                      background-image: url(https://assets.cinelove.me/templates/assets/f7f5d1dc-1da6-4004-a0a5-9676073df472/55dafb85-9102-427b-bb5f-f4b7d263082e.jpg);
+                    "
+                  ></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Ilove -->
+            <div
+              class="node"
+              style="
+                top: 220px;
+                display: flex;
+                justify-content: center;
+                width: 100%;
+                z-index: 1;
+              "
+            >
+              <div data-t="su" style="width: 100%; height: 100%">
+                <div class="text-box">
+                  <div
+                    style="
+                      width: 100%;
+                      color: #fff;
+                      font-size: 16px;
+                      font-weight: 500;
+                      font-family: Quicksand, sans-serif;
+                      text-align: center;
+                    "
+                  >
+                    Ilove three things in this world.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- photo 2 of 3 -->
+            <div
+              class="node"
+              style="
+                top: 250px;
+                height: 230px;
+                z-index: 1;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+              "
+            >
+              <div data-t="su" style="width: 90%; height: 100%">
+                <div class="no-mask">
+                  <div
+                    class="photo-bg-wrap"
+                    style="
+                      background-size: cover;
+                      background-image: url(https://assets.cinelove.me/templates/assets/f7f5d1dc-1da6-4004-a0a5-9676073df472/8c3a5119-758c-4f04-8695-e99f49e594c2.jpg);
+                    "
+                  ></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Sun moon -->
+            <div
+              class="node"
+              style="
+                top: 450px;
+                z-index: 1;
+                display: flex;
+                justify-content: center;
+                width: 100%;
+              "
+            >
+              <div data-t="su" style="width: 100%; height: 100%">
+                <div class="text-box">
+                  <div
+                    style="
+                      width: 100%;
+                      color: #fff;
+                      font-size: 16px;
+                      font-weight: 500;
+                      font-family: Quicksand, sans-serif;
+                      text-align: center;
+                    "
+                  >
+                    Sun, moon and you.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- photo 3 of 3 -->
+            <div
+              class="node"
+              style="
+                top: 484px;
+                height: 230px;
+                z-index: 1;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+              "
+            >
+              <div data-t="su" data-d="2" style="width: 90%; height: 100%">
+                <div class="no-mask">
+                  <div
+                    class="photo-bg-wrap"
+                    style="
+                      background-size: cover;
+                      background-image: url(https://assets.cinelove.me/templates/assets/f7f5d1dc-1da6-4004-a0a5-9676073df472/cd1efe94-24d7-4c5e-8903-f15f528e1306.jpg);
+                    "
+                  ></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Sun for morning -->
+            <div
+              class="node"
+              style="
+                top: 662px;
+                z-index: 1;
+                display: flex;
+                justify-content: center;
+                width: 100%;
+              "
+            >
+              <div data-t="su" style="width: 80%; height: 100%">
+                <div class="text-box">
+                  <div
+                    style="
+                      width: 100%;
+                      color: #fff;
+                      font-size: 16px;
+                      font-weight: 500;
+                      font-family: Quicksand, sans-serif;
+                      text-align: center;
+                    "
+                  >
+                    <div>Sun for morning,moon for night,&nbsp;</div>
+                    and you forever.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Countdown box -->
+          <div style="width: 100%; position: relative; top: -1px">
+            <div
+              data-t="fade"
+              data-d="3"
+              style="
+                width: 100%;
+                height: 100%;
+                padding: 40px 0;
+                background-color: #000;
+              "
+            >
+              <div class="countdown">
+                <div>
+                  <div class="cd-num" id="cd-days">0</div>
+                  <div class="cd-label">ngày</div>
+                </div>
+                <div>
+                  <div class="cd-num" id="cd-hours">0</div>
+                  <div class="cd-label">giờ</div>
+                </div>
+                <div>
+                  <div class="cd-num" id="cd-mins">0</div>
+                  <div class="cd-label">phút</div>
+                </div>
+                <div>
+                  <div class="cd-num" id="cd-secs">0</div>
+                  <div class="cd-label">giây</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Có lẽ thế gian -->
+          <div
+            style="
+              width: 100%;
+              display: flex;
+              justify-content: center;
+              margin: 70px 0;
+            "
+          >
+            <div data-t="su" style="width: 100%; height: 100%">
+              <div class="text-box">
+                <div
+                  style="
+                    width: 100%;
+                    color: #000;
+                    font-size: 18px;
+                    font-weight: 500;
+                    font-family: Signora, serif;
+                    text-align: center;
+                    line-height: 1.63;
+                    letter-spacing: 1px;
+                  "
+                >
+                  Có lẽ thế gian này có vô vàn điều tươi đẹp,&nbsp;
+                  <div>Nhưng trong lòng em, đẹp nhất vẫn chỉ có anh</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div style="position: relative; width: 100%; height: 1012px">
+            <!-- MY LOVE rotated -->
+            <div
+              class="node"
+              style="
+                top: 50px;
+                left: 0;
+                width: 125px;
+                z-index: 0;
+                transform: rotate(90deg);
+              "
+            >
+              <div data-t="sr" style="width: 100%; height: 100%">
+                <div class="text-box">
+                  <div
+                    style="
+                      width: 100%;
+                      color: #bea12e;
+                      font-size: 22px;
+                      font-weight: 500;
+                      font-family: ShowcaseSans, sans-serif;
+                      text-align: center;
+                    "
+                  >
+                    MY LOVE
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- big portrait photo -->
+            <div
+              class="node"
+              style="
+                right: 5%;
+                top: 0;
+                /* left: 98.8283px; */
+                width: 75%;
+                height: 490.973px;
+                z-index: 0;
+              "
+            >
+              <div data-t="su" data-d="2" style="width: 100%; height: 100%">
+                <div class="no-mask">
+                  <div
+                    class="photo-bg-wrap"
+                    style="
+                      background-image: url(https://assets.cinelove.me/templates/assets/f7f5d1dc-1da6-4004-a0a5-9676073df472/8dc26cf4-e024-4fdb-a07d-fb94bdf850f5.jpeg);
+                    "
+                  ></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- FOREVER rotated -->
+            <div
+              class="node"
+              style="
+                top: 200px;
+                left: -22px;
+                width: 168px;
+                z-index: 0;
+                transform: rotate(90deg);
+              "
+            >
+              <div data-t="sr" style="width: 100%; height: 100%">
+                <div class="text-box">
+                  <div
+                    style="
+                      width: 100%;
+                      color: #bea12e;
+                      font-size: 22px;
+                      font-weight: 500;
+                      font-family: ShowcaseSans, sans-serif;
+                      text-align: center;
+                    "
+                  >
+                    FOREVER
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- decorative deco -->
+            <div
+              class="node"
+              style="
+                top: 290px;
+                left: -14px;
+                width: 325.2px;
+                height: 460.862px;
+                z-index: 0;
+              "
+            >
+              <div data-t="su" data-d="2" style="width: 100%; height: 100%">
+                <div class="no-mask">
+                  <div
+                    class="photo-bg-wrap"
+                    style="
+                      background-image: url(https://assets.cinelove.me/templates/assets/f7f5d1dc-1da6-4004-a0a5-9676073df472/c7ea51f2-70eb-48f6-9bff-515e25b9cc5a.png);
+                    "
+                  ></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- decorative strip -->
+            <div
+              class="node"
+              style="
+                top: 555px;
+                width: 200px;
+                height: 43.0528px;
+                z-index: 0;
+                right: 20px;
+              "
+            >
+              <div data-t="sl" data-d="2" style="width: 100%; height: 100%">
+                <div class="no-mask">
+                  <div
+                    class="photo-bg-wrap"
+                    style="
+                      background-image: url(https://assets.cinelove.me/templates/assets/f7f5d1dc-1da6-4004-a0a5-9676073df472/a2ba6105-701f-426a-aa0e-c63acab84e09.png);
+                    "
+                  ></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Mong gió xuân -->
+            <div
+              class="node"
+              style="top: 640px; right: 20px; width: 246.5px; z-index: 0"
+            >
+              <div data-t="su" style="width: 100%; height: 100%">
+                <div class="text-box" style="justify-content: flex-end">
+                  <div
+                    style="
+                      width: 100%;
+                      color: #000;
+                      font-size: 16px;
+                      font-weight: 500;
+                      font-family: &quot;Mallong&quot;, cursive;
+                      text-align: right;
+                    "
+                  >
+                    Mong gió xuân dịu dàng với em hơn,&nbsp;
+                    <div>Xua tan muộn phiền,&nbsp;</div>
+                    <div>Để mọi thứ chỉ còn lại dịu êm.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- wide photo -->
+            <div
+              class="node"
+              style="
+                top: 750px;
+                left: 0;
+                width: 499.9px;
+                height: 261px;
+                z-index: 0;
+              "
+            >
+              <div data-t="su" data-d="2" style="width: 100%; height: 100%">
+                <div class="no-mask">
+                  <div
+                    class="photo-bg-wrap"
+                    style="
+                      background-image: url(https://assets.cinelove.me/templates/assets/f7f5d1dc-1da6-4004-a0a5-9676073df472/fb9385a4-f4fd-4a4b-902f-02ab15ffff16.jpeg);
+                    "
+                  ></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Fall in -->
+          <div
+            style="
+              width: 100%;
+              color: #000;
+              font-size: 26px;
+              font-weight: 500;
+              font-family: ShowcaseSans, sans-serif;
+              display: flex;
+              justify-content: space-around;
+            "
+          >
+            <!-- FALL IN -->
+            <div data-t="sr">
+              <div class="text-box">FALL IN</div>
+            </div>
+            <!-- LOVE -->
+            <div data-t="su">
+              <div class="text-box">LOVE</div>
+            </div>
+            <!-- WEDDING -->
+            <div data-t="sl">
+              <div class="text-box">WEDDING</div>
+            </div>
+          </div>
+
+          <!-- photo wide -->
+          <div style="width: 100%; height: 216px">
+            <div data-t="su" data-d="2" style="width: 100%; height: 100%">
+              <div class="no-mask">
+                <div
+                  class="photo-bg-wrap"
+                  style="
+                    background-size: contain;
+                    background-image: url(https://assets.cinelove.me/templates/assets/f7f5d1dc-1da6-4004-a0a5-9676073df472/68d4a69e-7f7d-4a41-8726-b112d5381c40.jpeg);
+                  "
+                ></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- heart -->
+          <div
+            style="
+              width: 100%;
+              display: flex;
+              justify-content: center;
+              cursor: default;
+              margin: 75px 0;
+            "
+          >
+            <div data-t="su" style="width: 20px; height: 20px">
+              <div class="text-box" style="justify-content: flex-start">
+                <div id="svg-MBuQz3c3tL" style="width: 100%; height: 100%">
+                  <svg
+                    preserveAspectRatio="none"
+                    width="100%"
+                    height="100%"
+                    version="1.2"
+                    baseProfile="tiny"
+                    id="图层_1"
+                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                    x="0px"
+                    y="0px"
+                    viewBox="0 0 100 100"
+                    xml:space="preserve"
+                  >
+                    <style>
+                      #svg-MBuQz3c3tL svg path {
+                        fill: #baa58a;
+                      }
+                    </style>
+                    <path
+                      id="XMLID_13374_"
+                      fill="#999999"
+                      d="M70.7,71.3c-10.6,7.5-19.6,17.9-20.7,22.2c-1.3-4.3-9.4-14.5-20.8-22
+	C17.5,63.8-0.1,56.6,0,37.4c0.2-35,37-42,50-11.9C62.3-3.4,99.8,2.1,100,37.2C100.1,56.4,82.3,63.1,70.7,71.3L70.7,71.3z"
+                    ></path>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- decorative strip 2 -->
+          <div style="display: flex; width: 100%; justify-content: center">
+            <div data-t="su" data-d="2" style="width: 75%; height: 39.351px">
+              <div class="no-mask">
+                <div
+                  class="photo-bg-wrap"
+                  style="
+                    background-image: url(https://assets.cinelove.me/templates/assets/f7f5d1dc-1da6-4004-a0a5-9676073df472/403dc6ea-c12d-4f6d-99cd-51380494a183.png);
+                  "
+                ></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Đi một vòng -->
+          <div style="width: 100%; margin-top: 70px">
+            <div data-t="su" style="width: 100%; height: 100%">
+              <div class="text-box">
+                <div
+                  style="
+                    width: 100%;
+                    color: #000;
+                    font-size: 18px;
+                    font-weight: 500;
+                    font-family: Quicksand, sans-serif;
+                    text-align: center;
+                  "
+                >
+                  Đi một vòng lớn rồi vẫn gặp anh,&nbsp;
+                  <div>Từ đó, thế gian bỗng hóa dịu dàng.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- big decorative bg -->
+          <div
+            style="
+              position: relative;
+              margin-top: 70px;
+              height: 590px;
+              padding: 0 20px;
+            "
+          >
+            <div
+              class="node"
+              data-t="su"
+              data-d="2"
+              style="height: 100%; z-index: 1; left: 20px; right: 20px"
+            >
+              <div class="no-mask">
+                <div
+                  class="photo-bg-wrap"
+                  style="
+                    background-image: url(https://assets.cinelove.me/templates/assets/f7f5d1dc-1da6-4004-a0a5-9676073df472/97a9320c-1252-4015-b38b-5d8f6c487649.png);
+                  "
+                ></div>
+              </div>
+            </div>
+            <!-- portrait photo -->
+            <div
+              class="node"
+              style="
+                top: 10px;
+                height: 500px;
+                z-index: 0;
+                left: 30px;
+                right: 30px;
+              "
+            >
+              <div data-t="su" data-d="2" style="width: 100%; height: 100%">
+                <div class="no-mask">
+                  <div
+                    class="photo-bg-wrap"
+                    style="
+                      background-image: url(https://assets.cinelove.me/templates/assets/f7f5d1dc-1da6-4004-a0a5-9676073df472/d76a703f-dc14-4a9d-9973-33f392d8168e.jpg);
+                    "
+                  ></div>
+                </div>
+              </div>
+            </div>
+            <!-- CALENDAR -->
+            <div
+              class="node"
+              style="top: 340px; z-index: 1; left: 70px; right: 70px"
+            >
+              <div data-t="su" data-d="3" style="width: 100%; height: 100%">
+                <div
+                  style="
+                    width: 100%;
+                    height: 100%;
+                    color: #fff;
+                    font-size: 14px;
+                    font-family: Arial;
+                  "
+                >
+                  <div class="calendar template-three">
+                    <div class="empty"><div></div></div>
+                    <div class="empty"><div></div></div>
+                    <div class="empty"><div></div></div>
+                    <div><div>1</div></div>
+                    <div><div>2</div></div>
+                    <div><div>3</div></div>
+                    <div><div>4</div></div>
+                    <div><div>5</div></div>
+                    <div><div>6</div></div>
+                    <div><div>7</div></div>
+                    <div><div>8</div></div>
+                    <div><div>9</div></div>
+                    <div><div>10</div></div>
+                    <div>
+                      <img
+                        class="heart-date"
+                        src="https://assets.cinelove.me/assets/plugins/calen_heart_1.png"
+                        alt="heart"
+                      />
+                      <div class="colorF">11</div>
+                    </div>
+                    <div><div>12</div></div>
+                    <div><div>13</div></div>
+                    <div><div>14</div></div>
+                    <div><div>15</div></div>
+                    <div><div>16</div></div>
+                    <div><div>17</div></div>
+                    <div><div>18</div></div>
+                    <div><div>19</div></div>
+                    <div><div>20</div></div>
+                    <div><div>21</div></div>
+                    <div><div>22</div></div>
+                    <div><div>23</div></div>
+                    <div><div>24</div></div>
+                    <div><div>25</div></div>
+                    <div><div>26</div></div>
+                    <div><div>27</div></div>
+                    <div><div>28</div></div>
+                    <div><div>29</div></div>
+                    <div><div>30</div></div>
+                    <div><div>31</div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Thứ Bảy -->
+            <div class="node" style="top: 508px; z-index: 1; left: 0; right: 0">
+              <div data-t="su" style="width: 100%; height: 100%">
+                <div class="text-box">
+                  <div
+                    style="
+                      width: 100%;
+                      color: #fff;
+                      font-size: 26px;
+                      font-weight: 500;
+                      font-family:
+                        Madam Ghea,
+                        sans-serif;
+                      text-align: center;
+                      line-height: 1.52;
+                    "
+                  >
+                    Thứ Bảy, 11/04/2026&nbsp;
+                    <div>Âm lịch 24/2 | 16:00</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hạnh phúc lớn nhất -->
+          <div style="width: 100%; margin-top: 40px; display: flex">
+            <div data-t="su" style="width: 100%; height: 100%">
+              <div class="text-box">
+                <div
+                  style="
+                    width: 100%;
+                    color: #000;
+                    font-size: 18px;
+                    font-weight: 500;
+                    font-family: &quot;Mallong&quot;, cursive;
+                    text-align: center;
+                  "
+                >
+                  Hạnh phúc lớn nhất chính là được nắm tay anh,&nbsp;
+                  <div>Cùng nhau đi hết cuộc đời lãng mạn này</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- big photo mask-017 -->
+          <div
+            style="
+              position: relative;
+              width: 100%;
+              height: 845.509px;
+              margin-top: 35px;
+            "
+          >
+            <div data-t="su" data-d="2" style="width: 100%; height: 100%">
+              <div class="mask-017">
+                <div
+                  class="photo-bg-wrap"
+                  style="background-image: url(public/anhcuoi.jpg)"
+                ></div>
+              </div>
+            </div>
+            <!-- Fall in -->
+            <div
+              class="node"
+              style="
+                top: 10px;
+                width: 100%;
+                color: #fff;
+                font-size: 18px;
+                font-weight: 500;
+                font-family:
+                  Belinda Avenue,
+                  cursive;
+                display: flex;
+                justify-content: space-around;
+              "
+            >
+              <!-- SWEET -->
+              <div data-t="sr">
+                <div class="text-box">SWEET</div>
+              </div>
+              <!-- WEDDING -->
+              <div data-t="su">
+                <div class="text-box">WEDDING</div>
+              </div>
+              <!-- INVITATION -->
+              <div data-t="sl">
+                <div class="text-box">INVITATION</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- sweet quote -->
+          <div style="width: 100%">
+            <div data-t="su" style="width: 100%; height: 100%">
+              <div class="text-box">
+                <div
+                  style="
+                    width: 100%;
+                    color: #000;
+                    font-size: 15px;
+                    font-weight: 500;
+                    font-family: Mallong, cursive;
+                    text-align: center;
+                  "
+                >
+                  "Hết lần này đến lần khác, đem chuyện tình riêng khoe với thế
+                  gian,&nbsp;
+                  <div>
+                    Chỉ vì mỗi lần nhìn em, anh lại thấy đó là điều đáng tự hào
+                    nhất."
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- heart -->
+          <div
+            style="
+              width: 100%;
+              display: flex;
+              justify-content: center;
+              cursor: default;
+              margin: 75px 0;
+            "
+          >
+            <div data-t="su" style="width: 20px; height: 20px">
+              <div class="text-box" style="justify-content: flex-start">
+                <div id="svg-MBuQz3c3tL" style="width: 100%; height: 100%">
+                  <svg
+                    preserveAspectRatio="none"
+                    width="100%"
+                    height="100%"
+                    version="1.2"
+                    baseProfile="tiny"
+                    id="图层_1"
+                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                    x="0px"
+                    y="0px"
+                    viewBox="0 0 100 100"
+                    xml:space="preserve"
+                  >
+                    <style>
+                      #svg-MBuQz3c3tL svg path {
+                        fill: #baa58a;
+                      }
+                    </style>
+                    <path
+                      id="XMLID_13374_"
+                      fill="#999999"
+                      d="M70.7,71.3c-10.6,7.5-19.6,17.9-20.7,22.2c-1.3-4.3-9.4-14.5-20.8-22
+	C17.5,63.8-0.1,56.6,0,37.4c0.2-35,37-42,50-11.9C62.3-3.4,99.8,2.1,100,37.2C100.1,56.4,82.3,63.1,70.7,71.3L70.7,71.3z"
+                    ></path>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- address png -->
+          <div style="width: 100%; display: flex; justify-content: center">
+            <div data-t="su" data-d="2" style="width: 200px; height: 48.0211px">
+              <div class="no-mask">
+                <div
+                  class="photo-bg-wrap"
+                  style="
+                    background-image: url(https://assets.cinelove.me/templates/assets/f7f5d1dc-1da6-4004-a0a5-9676073df472/1f6b3ba4-87e6-43e8-b9f3-0f8ba60503b8.png);
+                  "
+                ></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- MAP -->
+          <div
+            style="
+              width: 100%;
+              display: flex;
+              justify-content: center;
+              margin-top: 60px;
+            "
+          >
+            <div
+              style="
+                width: 366.5px;
+                height: 249.659px;
+                border-radius: 5px;
+                overflow: hidden;
+                position: relative;
+              "
+            >
+              <!-- MAP -->
+              <iframe
+                width="100%"
+                height="100%"
+                style="border: 0"
+                loading="lazy"
+                allowfullscreen
+                src="https://www.google.com/maps?q=10.387765584851559,106.71688450679153&z=15&hl=vi&output=embed"
+              ></iframe>
+
+              <!-- BUTTON MỞ GOOGLE MAPS -->
+              <a
+                href="https://www.google.com/maps?q=10.387765584851559,106.71688450679153"
+                target="_blank"
+                style="
+                  position: absolute;
+                  top: 10px;
+                  left: 10px;
+                  background: white;
+                  padding: 8px 12px;
+                  border-radius: 6px;
+                  font-size: 14px;
+                  text-decoration: none;
+                  color: #1a73e8;
+                  font-weight: 500;
+                  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+                "
+              >
+                Mở trong Maps ↗
+              </a>
+            </div>
+          </div>
+
+          <!-- character -->
+          <div
+            style="
+              width: 100%;
+              display: flex;
+              justify-content: center;
+              margin-top: 70px;
+            "
+          >
+            <div
+              data-t="su"
+              data-d="2"
+              style="width: 91.7px; height: 121.304px"
+            >
+              <div
+                class="material-component"
+                style="
+                  background-image: url(https://assets.cinelove.me/resources/characters/h4py3okq2aoga2u5n94fcq.png);
+                "
+              ></div>
+            </div>
+          </div>
+
+          <!-- bottom deco -->
+          <div
+            style="
+              width: 100%;
+              display: flex;
+              justify-content: center;
+              margin: 50px 0 60px;
+            "
+          >
+            <div data-t="su" data-d="2" style="width: 200px; height: 62.6794px">
+              <div class="no-mask">
+                <div
+                  class="photo-bg-wrap"
+                  style="
+                    background-image: url(https://assets.cinelove.me/templates/assets/f7f5d1dc-1da6-4004-a0a5-9676073df472/3093a861-5a92-4311-8ff9-403efffd426f.png);
+                  "
+                ></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /root-page-container -->
+      </div>
+      <!-- /scroll-container -->
+    </div>
+
+    <script>
+      /* =========================
+         AUDIO
+      ========================= */
+      let audioPlaying = false;
+
+      function toggleAudio() {
+        const a = document.getElementById("bgAudio");
+        const t = document.getElementById("audioToggle");
+
+        if (audioPlaying) {
+          a.pause();
+          t.classList.remove("mrotate");
+        } else {
+          a.play().catch(() => {});
+          t.classList.add("mrotate");
+        }
+
+        audioPlaying = !audioPlaying;
+      }
+
+      /* =========================
+         LOAD
+      ========================= */
+      window.addEventListener("load", () => {
+        // const div = document.getElementById("audioToggle");
+        // console.log("Trang load xong:", div);
+
+        // toggleAudio()
+
+        // start auto scroll sau khi load
+        setTimeout(startAutoScroll, 2000);
+      });
+
+      /* =========================
+         COUNTDOWN
+      ========================= */
+      function updateCD() {
+        const target = new Date("2026-04-11T16:00:00");
+        const diff = target - new Date();
+        if (diff <= 0) return;
+
+        document.getElementById("cd-days").textContent = Math.floor(
+          diff / 86400000,
+        );
+
+        document.getElementById("cd-hours").textContent = String(
+          Math.floor((diff % 86400000) / 3600000),
+        ).padStart(2, "0");
+
+        document.getElementById("cd-mins").textContent = String(
+          Math.floor((diff % 3600000) / 60000),
+        ).padStart(2, "0");
+
+        document.getElementById("cd-secs").textContent = String(
+          Math.floor((diff % 60000) / 1000),
+        ).padStart(2, "0");
+      }
+
+      updateCD();
+      setInterval(updateCD, 1000);
+
+      /* =========================
+         SCROLL REVEAL
+      ========================= */
+      const sc = document.getElementById("scroll-container");
+      // const els = document.querySelectorAll("[data-t]");
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("vis");
+
+              // chỉ animate 1 lần
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        {
+          root: sc, // QUAN TRỌNG: dùng container của bạn
+          threshold: 0, // phần tử hiện 25% thì trigger
+          // rootMargin: "0px 0px -120px 0px",
+        },
+      );
+
+      // apply cho tất cả element cần animation
+      document.querySelectorAll("[data-t]").forEach((el, i) => {
+        observer.observe(el);
+        // el.style.transitionDelay = `${i * 0.1}s`;
+      });
+
+      /* =========================
+     AUTO SCROLL (SMOOTH + SAFE)
+  ========================= */
+      let autoScrolling = true;
+      let scrollSpeed = 0.7; // giảm tốc để không skip animation
+
+      function startAutoScroll() {
+        if (!sc) return;
+
+        function autoScroll() {
+          if (!autoScrolling) return;
+
+          sc.scrollTop += scrollSpeed;
+
+          // dừng khi tới cuối
+          if (sc.scrollTop + sc.clientHeight >= sc.scrollHeight) {
+            autoScrolling = false;
+            return;
+          }
+
+          requestAnimationFrame(autoScroll);
+        }
+
+        autoScroll();
+      }
+
+      /* =========================
+         USER INTERACTION → STOP
+      ========================= */
+      if (sc) {
+        ["wheel", "touchstart", "mousedown", "keydown"].forEach((event) => {
+          sc.addEventListener(
+            event,
+            () => {
+              autoScrolling = false;
+            },
+            { passive: true },
+          );
+        });
+      }
+    </script>
+  </body>
+</html>
