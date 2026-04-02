@@ -2105,16 +2105,84 @@
           a.play().catch(() => {});
           t.classList.add("mrotate");
         }
-
         audioPlaying = !audioPlaying;
       }
 
       /* =========================
-     LOAD
+     SCROLL & REVEAL SETUP
   ========================= */
-      window.addEventListener("load", () => {
-        setTimeout(startAutoScroll, 2000);
-      });
+      let autoScrolling = true;
+      let scrollSpeed = 0.7;
+      let scrollInterval = null;
+
+      function startAutoScroll() {
+        const sc = document.getElementById("scroll-container");
+        if (!sc) return;
+
+        sc.style.webkitOverflowScrolling = "touch";
+
+        scrollInterval = setInterval(() => {
+          if (!autoScrolling) {
+            clearInterval(scrollInterval);
+            return;
+          }
+          sc.scrollBy(0, scrollSpeed);
+          if (sc.scrollTop + sc.clientHeight >= sc.scrollHeight - 1) {
+            autoScrolling = false;
+            clearInterval(scrollInterval);
+          }
+        }, 16);
+      }
+
+      function stopAutoScroll() {
+        autoScrolling = false;
+        clearInterval(scrollInterval);
+      }
+
+      function setupScrollReveal() {
+        const sc = document.getElementById("scroll-container");
+        if (!sc) return;
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("vis");
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { root: sc, threshold: 0 },
+        );
+
+        document
+          .querySelectorAll("[data-t]")
+          .forEach((el) => observer.observe(el));
+
+        // Stop auto scroll on user interaction
+        let touchStartY = 0;
+
+        sc.addEventListener(
+          "touchstart",
+          (e) => {
+            touchStartY = e.touches[0].clientY;
+          },
+          { passive: true },
+        );
+
+        sc.addEventListener(
+          "touchmove",
+          (e) => {
+            if (Math.abs(e.touches[0].clientY - touchStartY) > 10)
+              stopAutoScroll();
+          },
+          { passive: true },
+        );
+
+        sc.addEventListener("wheel", stopAutoScroll, { passive: true });
+        sc.addEventListener("mousedown", stopAutoScroll, { passive: true });
+        sc.addEventListener("keydown", stopAutoScroll, { passive: true });
+      }
 
       /* =========================
      COUNTDOWN
@@ -2142,121 +2210,13 @@
       setInterval(updateCD, 1000);
 
       /* =========================
-     SCROLL REVEAL
+     LOAD
   ========================= */
-      const sc = document.getElementById("scroll-container");
-
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("vis");
-              observer.unobserve(entry.target);
-            }
-          });
-        },
-        {
-          root: sc,
-          threshold: 0,
-        },
-      );
-
-      document.querySelectorAll("[data-t]").forEach((el) => {
-        observer.observe(el);
+      window.addEventListener("load", () => {
+        setTimeout(startAutoScroll, 2000);
+        setTimeout(setupScrollReveal, 2000);
+        toggleAudio();
       });
-
-      /* =========================
-     AUTO SCROLL
-  ========================= */
-      let autoScrolling = true;
-      let scrollSpeed = 0.7;
-      let rafId = null;
-
-      // FIX iOS: dùng setInterval thay vì requestAnimationFrame
-      // vì rAF bị throttle khi Safari cho rằng không cần render
-      let scrollInterval = null;
-
-      function startAutoScroll() {
-        if (!sc) return;
-
-        // FIX iOS: đảm bảo element scrollable
-        sc.style.webkitOverflowScrolling = "touch";
-
-        scrollInterval = setInterval(() => {
-          if (!autoScrolling) {
-            clearInterval(scrollInterval);
-            return;
-          }
-
-          // FIX iOS: scrollBy hoạt động tốt hơn gán scrollTop trực tiếp
-          sc.scrollBy(0, scrollSpeed);
-
-          if (sc.scrollTop + sc.clientHeight >= sc.scrollHeight - 1) {
-            autoScrolling = false;
-            clearInterval(scrollInterval);
-          }
-        }, 16); // ~60fps
-      }
-
-      /* =========================
-     USER INTERACTION → STOP
-  ========================= */
-      if (sc) {
-        let touchStartY = 0;
-        let touchStartTime = 0;
-
-        // FIX iOS: chỉ dừng khi người dùng THỰC SỰ scroll (swipe),
-        // không dừng khi chỉ tap nhẹ
-        sc.addEventListener(
-          "touchstart",
-          (e) => {
-            touchStartY = e.touches[0].clientY;
-            touchStartTime = Date.now();
-          },
-          { passive: true },
-        );
-
-        sc.addEventListener(
-          "touchmove",
-          (e) => {
-            const deltaY = Math.abs(e.touches[0].clientY - touchStartY);
-            // Chỉ dừng nếu swipe > 10px (phân biệt tap vs scroll)
-            if (deltaY > 10) {
-              autoScrolling = false;
-              clearInterval(scrollInterval);
-            }
-          },
-          { passive: true },
-        );
-
-        // Desktop
-        sc.addEventListener(
-          "wheel",
-          () => {
-            autoScrolling = false;
-            clearInterval(scrollInterval);
-          },
-          { passive: true },
-        );
-
-        sc.addEventListener(
-          "mousedown",
-          () => {
-            autoScrolling = false;
-            clearInterval(scrollInterval);
-          },
-          { passive: true },
-        );
-
-        sc.addEventListener(
-          "keydown",
-          () => {
-            autoScrolling = false;
-            clearInterval(scrollInterval);
-          },
-          { passive: true },
-        );
-      }
     </script>
   </body>
 </html>
