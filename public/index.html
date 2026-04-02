@@ -6,6 +6,12 @@
       name="viewport"
       content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
     />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="100x100"
+      href="/public/favicon_optimized.ico"
+    />
     <title>Thiệp cưới Duy Khương ❤️ Mỹ Huyền</title>
     <style>
       *,
@@ -23,7 +29,7 @@
 
       @font-face {
         font-family: "Chillatos";
-        src: url("/fonts/chillatos.woff2") format("woff2");
+        src: url("/public/fonts/chillatos.woff2") format("woff2");
         font-weight: 400;
         font-style: normal;
         font-display: swap;
@@ -34,7 +40,7 @@
 ========================= */
       @font-face {
         font-family: "Montserrat";
-        src: url("/fonts/montserrat.woff2") format("woff2");
+        src: url("/public/fonts/montserrat.woff2") format("woff2");
         font-weight: 400;
         font-style: normal;
         font-display: swap;
@@ -45,7 +51,7 @@
 ========================= */
       @font-face {
         font-family: "PlayfairDisplay";
-        src: url("/fonts/playfairdisplay.woff2") format("woff2");
+        src: url("/public/fonts/playfairdisplay.woff2") format("woff2");
         font-weight: 400;
         font-style: normal;
         font-display: swap;
@@ -56,7 +62,7 @@
 ========================= */
       @font-face {
         font-family: "Quicksand";
-        src: url("/fonts/quicksand.woff2") format("woff2");
+        src: url("/public/fonts/quicksand.woff2") format("woff2");
         font-weight: 400;
         font-style: normal;
         font-display: swap;
@@ -67,7 +73,7 @@
 ========================= */
       @font-face {
         font-family: "Scarlet Bradley";
-        src: url("/fonts/scarlet-bradleyregular.woff2") format("woff2");
+        src: url("/public/fonts/scarlet-bradleyregular.woff2") format("woff2");
         font-weight: 400;
         font-style: normal;
         font-display: swap;
@@ -78,7 +84,7 @@
 ========================= */
       @font-face {
         font-family: "Belinda Avenue";
-        src: url("/fonts/belinda-avenue.woff2") format("woff2");
+        src: url("/public/fonts/belinda-avenue.woff2") format("woff2");
         font-weight: 400;
         font-style: normal;
         font-display: swap;
@@ -89,7 +95,7 @@
 ========================= */
       @font-face {
         font-family: "Signora";
-        src: url("/fonts/signora.woff2") format("woff2");
+        src: url("/public/fonts/signora.woff2") format("woff2");
         font-weight: 400;
         font-style: normal;
         font-display: swap;
@@ -100,7 +106,7 @@
 ========================= */
       @font-face {
         font-family: "Madam Ghea";
-        src: url("/fonts/madam-ghea.woff2") format("woff2");
+        src: url("/public/fonts/madam-ghea.woff2") format("woff2");
         font-weight: 400;
         font-style: normal;
         font-display: swap;
@@ -111,7 +117,7 @@
 ========================= */
       @font-face {
         font-family: "ShowcaseSans";
-        src: url("/fonts/showcasesans.woff2") format("woff2");
+        src: url("/public/fonts/showcasesans.woff2") format("woff2");
         font-weight: 400;
         font-style: normal;
         font-display: swap;
@@ -122,7 +128,7 @@
 ========================= */
       @font-face {
         font-family: "Mallong";
-        src: url("/fonts/mallong.woff2") format("woff2");
+        src: url("/public/fonts/mallong.woff2") format("woff2");
         font-weight: 400;
         font-style: normal;
         font-display: swap;
@@ -349,18 +355,18 @@
         margin-left: 2px;
       }
       .mask-013 {
-        -webkit-mask-box-image-source: url(https://assets.cinelove.me/resources/cropShapes/013_mjo2qfkce8o.png);
+        -webkit-mask-box-image-source: url("/public/013_mjo2qfkce8o.png");
         -webkit-mask-box-image-slice: 0 fill;
-        mask-image: url(https://assets.cinelove.me/resources/cropShapes/013_mjo2qfkce8o.png);
+        mask-image: url("/public/013_mjo2qfkce8o.png");
         mask-size: 100% 100%;
         mask-repeat: no-repeat;
         width: 100%;
         height: 100%;
       }
       .mask-017 {
-        -webkit-mask-box-image-source: url("/anhcuoidn.jpg");
+        -webkit-mask-box-image-source: url("/public/017_qnyb431guuf.png");
         -webkit-mask-box-image-slice: 0 fill;
-        mask-image: url("/anhcuoidn.jpg");
+        mask-image: url("/public/017_qnyb431guuf.png");
         mask-size: 100% 100%;
         mask-repeat: no-repeat;
         width: 100%;
@@ -419,12 +425,12 @@
     <div id="pc-wrapper">
       <div id="audio-control-wrapper">
         <div class="audio-toggle" id="audioToggle" onclick="toggleAudio()">
-          <img src="/audio-1.png" alt="music icon" class="music-icon" />
+          <img src="/public/audio-1.png" alt="music icon" class="music-icon" />
         </div>
       </div>
       <audio
         id="bgAudio"
-        src="/0e470330-e4d4-4fdc-8d99-830aab66916c.mp3"
+        src="/public/0e470330-e4d4-4fdc-8d99-830aab66916c.mp3"
         loop
         preload="auto"
       ></audio>
@@ -440,7 +446,7 @@
                   class="photo-bg-wrap"
                   style="
                     background-size: cover;
-                    background-image: url(/hero-photo.jpg);
+                    background-image: url(/public/hero-photo.jpg);
                   "
                 ></div>
               </div>
@@ -464,7 +470,7 @@
                 <div
                   class="photo-bg-wrap"
                   style="
-                    background-image: url(/39058fb3-f16b-494e-8fd5-6ed5741c50f8.png);
+                    background-image: url(/public/39058fb3-f16b-494e-8fd5-6ed5741c50f8.png);
                   "
                 ></div>
               </div>
@@ -811,7 +817,7 @@
                   class="photo-bg-wrap"
                   style="
                     background-size: cover;
-                    background-image: url(/2260413502517011637.jpg);
+                    background-image: url(/public/2260413502517011637.jpg);
                   "
                 ></div>
               </div>
@@ -970,7 +976,7 @@
                     class="photo-bg-wrap"
                     style="
                       background-size: cover;
-                      background-image: url(/Screenshot1.png);
+                      background-image: url(/public/Screenshot1.png);
                     "
                   ></div>
                 </div>
@@ -1012,7 +1018,7 @@
                     class="photo-bg-wrap"
                     style="
                       background-size: cover;
-                      background-image: url(/Screenshot2.png);
+                      background-image: url(/public/Screenshot2.png);
                     "
                   ></div>
                 </div>
@@ -1158,7 +1164,7 @@
                     ></div>
                     <div
                       class="photo-bg-wrap"
-                      style="background-image: url(/anhphim1.jpg)"
+                      style="background-image: url(/public/anhphim1.jpg)"
                     ></div>
                   </div>
                 </div>
@@ -1220,7 +1226,7 @@
                       class="photo-bg-wrap"
                       style="
                         background-size: cover;
-                        background-image: url(/anhphim2.jpeg);
+                        background-image: url(/public/anhphim2.jpeg);
                       "
                     ></div>
                   </div>
@@ -1283,7 +1289,7 @@
                       class="photo-bg-wrap"
                       style="
                         background-size: cover;
-                        background-image: url(/anhphim3.jpg);
+                        background-image: url(/public/anhphim3.jpg);
                       "
                     ></div>
                   </div>
@@ -1385,7 +1391,7 @@
             </div>
           </div>
 
-          <div style="position: relative; width: 100%; height: 1012px">
+          <div style="position: relative; width: 100%; height: 755px">
             <!-- MY LOVE rotated -->
             <div
               class="node"
@@ -1431,9 +1437,7 @@
                 <div class="no-mask">
                   <div
                     class="photo-bg-wrap"
-                    style="
-                      background-image: url(https://assets.cinelove.me/templates/assets/f7f5d1dc-1da6-4004-a0a5-9676073df472/8dc26cf4-e024-4fdb-a07d-fb94bdf850f5.jpeg);
-                    "
+                    style="background-image: url(/public/anhcuoidn.jpg)"
                   ></div>
                 </div>
               </div>
@@ -1484,7 +1488,7 @@
                   <div
                     class="photo-bg-wrap"
                     style="
-                      background-image: url(https://assets.cinelove.me/templates/assets/f7f5d1dc-1da6-4004-a0a5-9676073df472/c7ea51f2-70eb-48f6-9bff-515e25b9cc5a.png);
+                      background-image: url(/public/mylove2-removebg-preview.png);
                     "
                   ></div>
                 </div>
@@ -1540,7 +1544,7 @@
             </div>
 
             <!-- wide photo -->
-            <div
+            <!-- <div
               class="node"
               style="
                 top: 750px;
@@ -1555,12 +1559,12 @@
                   <div
                     class="photo-bg-wrap"
                     style="
-                      background-image: url(https://assets.cinelove.me/templates/assets/f7f5d1dc-1da6-4004-a0a5-9676073df472/fb9385a4-f4fd-4a4b-902f-02ab15ffff16.jpeg);
+                      background-image: url(/public/6fac3e14-2cf0-4d16-88e3-a3469d158ae0.jpeg);
                     "
                   ></div>
                 </div>
               </div>
-            </div>
+            </div> -->
           </div>
 
           <!-- Fall in -->
@@ -1596,7 +1600,7 @@
                 <div
                   class="photo-bg-wrap mobile-conver-bg-size-cv"
                   style="
-                    background-image: url(https://assets.cinelove.me/templates/assets/f7f5d1dc-1da6-4004-a0a5-9676073df472/68d4a69e-7f7d-4a41-8726-b112d5381c40.jpeg);
+                    background-image: url(/public/6fac3e14-2cf0-4d16-88e3-a3469d158ae0.jpeg);
                   "
                 ></div>
               </div>
@@ -1729,12 +1733,19 @@
               "
             >
               <div data-t="su" data-d="2" style="width: 100%; height: 100%">
-                <div class="no-mask">
+                <div class="no-mask" style="position: relative">
+                  <div
+                    style="
+                      position: absolute;
+                      background-color: #000;
+                      width: 100%;
+                      height: 100%;
+                      opacity: 0.1;
+                    "
+                  ></div>
                   <div
                     class="photo-bg-wrap"
-                    style="
-                      background-image: url(https://assets.cinelove.me/templates/assets/f7f5d1dc-1da6-4004-a0a5-9676073df472/d76a703f-dc14-4a9d-9973-33f392d8168e.jpg);
-                    "
+                    style="background-image: url(/public/mylove3.jpg)"
                   ></div>
                 </div>
               </div>
@@ -1853,7 +1864,7 @@
             style="
               position: relative;
               width: 100%;
-              height: 845.509px;
+              height: 672px;
               margin-top: 35px;
             "
           >
@@ -1861,12 +1872,12 @@
               <div class="mask-017">
                 <div
                   class="photo-bg-wrap"
-                  style="background-image: url(/anhcuoidn.jpg)"
+                  style="background-image: url(/public/anhcuoitgrmtext.png)"
                 ></div>
               </div>
             </div>
             <!-- Fall in -->
-            <div
+            <!-- <div
               class="node"
               style="
                 top: 10px;
@@ -1880,20 +1891,20 @@
                 display: flex;
                 justify-content: space-around;
               "
-            >
-              <!-- SWEET -->
-              <div data-t="sr">
+            > -->
+            <!-- SWEET -->
+            <!-- <div data-t="sr">
                 <div class="text-box">SWEET</div>
-              </div>
-              <!-- WEDDING -->
-              <div data-t="su">
+              </div> -->
+            <!-- WEDDING -->
+            <!-- <div data-t="su">
                 <div class="text-box">WEDDING</div>
-              </div>
-              <!-- INVITATION -->
-              <div data-t="sl">
+              </div> -->
+            <!-- INVITATION -->
+            <!-- <div data-t="sl">
                 <div class="text-box">INVITATION</div>
               </div>
-            </div>
+            </div> -->
           </div>
 
           <!-- sweet quote -->
